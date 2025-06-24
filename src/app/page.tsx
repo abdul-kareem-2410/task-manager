@@ -77,8 +77,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4">
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                <Select value={filterStatus} onValueChange={(value) => setFilterStatus(value as any)}>
+                <Select value={filterStatus} onValueChange={(value) => setFilterStatus(value as Task["status"])}>
                   <SelectTrigger className="w-40">
                     <SelectValue placeholder="Filter by status" />
                   </SelectTrigger>
@@ -90,8 +89,7 @@ export default function Home() {
                   </SelectContent>
                 </Select>
 
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                <Select value={filterPriority} onValueChange={(value) => setFilterPriority(value as any)}>
+                <Select value={filterPriority} onValueChange={(value) => setFilterPriority(value as Task["priority"])}>
                   <SelectTrigger className="w-40">
                     <SelectValue placeholder="Filter by priority" />
                   </SelectTrigger>
