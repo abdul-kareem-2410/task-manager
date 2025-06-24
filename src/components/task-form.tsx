@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -11,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { X, Plus } from "lucide-react"
+import { type Resolver, type SubmitHandler } from "react-hook-form"
 
 interface TaskFormProps {
   onSubmit: (task: CreateTask) => void
@@ -22,7 +21,7 @@ export default function TaskForm({ onSubmit, onCancel }: TaskFormProps) {
   const [tagInput, setTagInput] = useState("")
 
   const form = useForm<CreateTask>({
-    resolver: zodResolver(CreateTaskSchema) as any,
+    resolver: zodResolver(CreateTaskSchema) as unknown as Resolver<CreateTask>,
     defaultValues: {
       title: "",
       description: "",
@@ -64,7 +63,7 @@ export default function TaskForm({ onSubmit, onCancel }: TaskFormProps) {
         <CardTitle>Create New Task</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={form.handleSubmit(handleSubmit as any)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(handleSubmit as SubmitHandler<CreateTask>)} className="space-y-4">
           <div>
             <Input placeholder="Task title" {...form.register("title")} className="text-lg" />
             {form.formState.errors.title && (
