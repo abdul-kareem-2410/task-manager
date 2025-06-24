@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Management Application
 
-## Getting Started
+A comprehensive task management system with advanced filtering, categorization, and analytics features, built with Next.js and React for efficient project and personal task organization.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Task Management Application is a full-featured productivity tool designed to help users organize, track, and manage their tasks effectively. It combines traditional task management functionality with advanced features like priority systems, tag-based organization, due date tracking, and comprehensive analytics to provide insights into productivity patterns.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Advanced Task Organization**: Create tasks with detailed descriptions, priority levels (low, medium, high), status tracking (todo, in-progress, completed), due dates, and custom tags for flexible categorization and organization.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Smart Dashboard Analytics**: Real-time dashboard displaying key metrics including total tasks, completion rates, in-progress items, and overdue task alerts with visual indicators and progress tracking.
 
-## Learn More
+**Flexible Filtering & Search**: Multi-dimensional filtering system allowing users to filter tasks by status, priority, tags, and due dates, with search functionality across task titles and descriptions.
 
-To learn more about Next.js, take a look at the following resources:
+**Priority & Status Management**: Visual priority indicators with color-coded badges, status progression tracking, and overdue task highlighting to help users focus on critical items.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Tag-Based Categorization**: Dynamic tag system allowing users to create custom tags for projects, contexts, or any organizational method, with tag-based filtering and management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Due Date Tracking**: Comprehensive date management with overdue detection, date formatting, and visual indicators for approaching deadlines.
 
-## Deploy on Vercel
+## Technical Implementation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**State Management**: Built custom React hooks (`useTasks`) for centralized task state management, handling CRUD operations, filtering logic, and analytics calculations with localStorage persistence.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Form Validation**: Implemented robust form validation using React Hook Form integrated with Zod schemas for type-safe data validation and error handling.
+
+**Data Persistence**: Client-side data storage using browser localStorage with automatic save/load functionality, ensuring tasks persist across browser sessions without requiring backend infrastructure.
+
+**Component Architecture**: Modular component design with reusable UI components including TaskCard, TaskForm, Dashboard, and specialized components for different views and interactions.
+
+**Analytics Engine**: Built-in analytics system that calculates task statistics, completion rates, overdue tracking, and productivity metrics with real-time updates.
+
+## Technologies Used
+
+- **Frontend Framework**: Next.js 14 with App Router and React Server Components
+- **Styling**: Tailwind CSS with custom component styling and responsive design
+- **Form Management**: React Hook Form for form state management and validation
+- **Validation**: Zod schemas for runtime type checking and data validation
+- **State Management**: Custom React hooks with localStorage integration
+- **UI Components**: Shadcn/ui component library for consistent, accessible UI elements
+- **Icons**: Lucide React for scalable vector icons
+- **Date Handling**: Native JavaScript Date API for date manipulation and formatting
+
+
+## Architecture
+
+The application follows a clean separation of concerns with custom hooks managing business logic, reusable UI components for presentation, and a centralized data layer using localStorage. The task management system is built around a flexible data model that supports extensibility while maintaining performance through efficient state management and optimized re-rendering patterns.
